@@ -27,6 +27,7 @@
             <ul class="nav-links">
                 <li><a href="#hero">INICIO</a></li>
                 <li><a href="#works">VIDEO</a></li>
+                <li><a href="#dev-projects">DESARROLLO</a></li>
                 <li><a href="#skills">SKILLS</a></li>
                 <li><a href="#contact">CONTACTO</a></li>
             </ul>
@@ -49,6 +50,7 @@
             <p class="hero-subtitle">Corto frames y escribo código con el mismo nivel de obsesión. Dos mundos distintos, un estándar idéntico: si puede hacerse mejor, lo hago mejor.</p>
             <div class="hero-cta-group">
                 <a href="#works" class="cta-button">VER VIDEOS</a>
+                <a href="#dev-projects" class="cta-button cta-dev-hero">&lt;/&gt; PROYECTOS DEV</a>
                 <a href="#skills" class="cta-button cta-secondary">MI ARSENAL</a>
             </div>
         </div>
@@ -139,6 +141,220 @@
             <div class="swiper-button-prev"></div>
             <div class="swiper-pagination"></div>
         </div>
+    </section>
+
+    <!-- ── Dev & Tech Projects (IDE Inspector Grid) ─────── -->
+    <section id="dev-projects" class="dev-projects-section">
+        <div class="section-header">
+            <h2>PROYECTOS — DESARROLLO &amp; TECH</h2>
+            <p>Sistemas, simulaciones, videojuegos y herramientas creadas con código.</p>
+        </div>
+
+        <div class="dev-tabs" id="dev-tabs">
+            <button class="dev-tab active" data-filter="all">TODOS</button>
+            <button class="dev-tab" data-filter="gamedev">🎮 GAME DEV</button>
+            <button class="dev-tab" data-filter="python">🐍 PYTHON &amp; TOOLS</button>
+            <button class="dev-tab" data-filter="web">🌐 WEB &amp; INTERACTIVE</button>
+            <button class="dev-tab" data-filter="cpp">⚡ C++ &amp; ALGORITMOS</button>
+        </div>
+
+        <div class="dev-grid" id="dev-grid">
+
+            <!-- Project 1: Partículas Cosmos -->
+            <div class="dev-card" data-category="gamedev cpp">
+                <div class="dev-card-header">
+                    <div class="window-dots">
+                        <span class="dot dot-red"></span>
+                        <span class="dot dot-yellow"></span>
+                        <span class="dot dot-green"></span>
+                    </div>
+                    <span class="window-file">particulas_cosmos.gd</span>
+                    <span class="dev-status-badge status-live">● GODOT / C++</span>
+                </div>
+                <div class="dev-preview-box">
+                    <img src="https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Partículas Cosmos" class="dev-preview-img" loading="lazy">
+                    <div class="dev-code-overlay">
+                        <pre><code>// Gravitational N-Body Sim
+var force = (G * m1 * m2) / (r * r)
+var vel += accel * delta
+particles.update_positions()</code></pre>
+                    </div>
+                </div>
+                <div class="dev-card-body">
+                    <h3 class="dev-title">PARTÍCULAS COSMOS</h3>
+                    <p class="dev-desc">Simulador interactivo del universo y mecánica de partículas con física gravitacional en tiempo real.</p>
+                    <div class="dev-tech-tags">
+                        <span class="tech-pill">Godot</span>
+                        <span class="tech-pill">C++</span>
+                        <span class="tech-pill">Python</span>
+                    </div>
+                    <div class="dev-card-footer">
+                        <button class="dev-btn dev-details-btn" 
+                            data-title="PARTÍCULAS COSMOS — Universe Simulator"
+                            data-file="particulas_cosmos.gd"
+                            data-tag="GAME DEV / PHYSICS SIMULATION"
+                            data-desc="Simulador interactivo de gravitación y física cuántica de partículas creado en Godot con soporte de computación de alto rendimiento en C++. Permite al usuario manipular campos gravitacionales, masas, constantes de atracción y generar eventos astronómicos en tiempo real a 60 FPS."
+                            data-stack="Godot Engine, C++, Python, OpenGL Shader"
+                            data-code="class UniverseSimulator {&#10;private:&#10;    std::vector&lt;Particle&gt; particles;&#10;    float G = 6.674e-11;&#10;public:&#10;    void step(float dt) {&#10;        #pragma omp parallel for&#10;        for(size_t i = 0; i &lt; particles.size(); ++i) {&#10;            particles[i].apply_gravity(particles);&#10;            particles[i].update(dt);&#10;        }&#10;    }&#10;};"
+                            data-github="https://github.com/SajoOP/Particulas-Cosmos"
+                            data-demo=""
+                            data-img="https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80">
+                            🔍 INSPECCIONAR PROYECTO
+                        </button>
+                        <a href="https://github.com/SajoOP/Particulas-Cosmos" target="_blank" rel="noopener" class="dev-btn dev-icon-btn" title="Ver en GitHub">
+                            &lt;/&gt;
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2: Video Automation Toolkit -->
+            <div class="dev-card" data-category="python">
+                <div class="dev-card-header">
+                    <div class="window-dots">
+                        <span class="dot dot-red"></span>
+                        <span class="dot dot-yellow"></span>
+                        <span class="dot dot-green"></span>
+                    </div>
+                    <span class="window-file">video_cli_toolkit.py</span>
+                    <span class="dev-status-badge status-tool">● PYTHON TOOLKIT</span>
+                </div>
+                <div class="dev-preview-box">
+                    <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Video Automation Toolkit" class="dev-preview-img" loading="lazy">
+                    <div class="dev-code-overlay">
+                        <pre><code># Python Video Automation
+def process_footage(src_path):
+    ffmpeg.cut_silence(threshold=-35dB)
+    generate_proxies(res="720p")
+    export_xml_timeline()</code></pre>
+                    </div>
+                </div>
+                <div class="dev-card-body">
+                    <h3 class="dev-title">VIDEO AUTOMATION SCRIPT</h3>
+                    <p class="dev-desc">Suite de herramientas en Python para automatizar flujo de trabajo, proxies y corte por silencio en Premiere/DaVinci.</p>
+                    <div class="dev-tech-tags">
+                        <span class="tech-pill">Python</span>
+                        <span class="tech-pill">FFmpeg</span>
+                        <span class="tech-pill">CLI Utility</span>
+                    </div>
+                    <div class="dev-card-footer">
+                        <button class="dev-btn dev-details-btn" 
+                            data-title="SAJO VIDEO AUTOMATION TOOLKIT"
+                            data-file="video_cli_toolkit.py"
+                            data-tag="PYTHON / MEDIA AUTOMATION"
+                            data-desc="Script de consola que procesa automáticamente archivos de video crudos: detecta y recorta silencios de voz con FFmpeg, genera archivos proxy livianos para Premiere y da nombre estructurado a escenas e ingresos de cámara."
+                            data-stack="Python 3, FFmpeg, MoviePy, PyInquirer CLI"
+                            data-code="import subprocess, os&#10;&#10;def auto_proxy_render(input_file, out_dir):&#10;    cmd = [&#10;        'ffmpeg', '-i', input_file,&#10;        '-vf', 'scale=-2:720',&#10;        '-c:v', 'libx264', '-crf', '23',&#10;        os.path.join(out_dir, f'proxy_{input_file}')&#10;    ]&#10;    subprocess.run(cmd, check=True)"
+                            data-github="https://github.com/SajoOP"
+                            data-demo=""
+                            data-img="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80">
+                            🔍 INSPECCIONAR PROYECTO
+                        </button>
+                        <a href="https://github.com/SajoOP" target="_blank" rel="noopener" class="dev-btn dev-icon-btn" title="Ver en GitHub">
+                            &lt;/&gt;
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3: Sajo Brutalist Portfolio Engine -->
+            <div class="dev-card" data-category="web">
+                <div class="dev-card-header">
+                    <div class="window-dots">
+                        <span class="dot dot-red"></span>
+                        <span class="dot dot-yellow"></span>
+                        <span class="dot dot-green"></span>
+                    </div>
+                    <span class="window-file">portfolio_engine.js</span>
+                    <span class="dev-status-badge status-active">● ONLINE LIVE</span>
+                </div>
+                <div class="dev-preview-box">
+                    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Portfolio Engine" class="dev-preview-img" loading="lazy">
+                    <div class="dev-code-overlay">
+                        <pre><code>// Glitch & Swiper Engine
+gsap.timeline()
+  .fromTo('.char-wrap', {y: -120})
+  .to('#hero-content', {opacity: 1})</code></pre>
+                    </div>
+                </div>
+                <div class="dev-card-body">
+                    <h3 class="dev-title">PORTFOLIO SAJO</h3>
+                    <p class="dev-desc">Portafolio web con estética brutalista/editorial, animaciones de glitch en JS puro y carrusel de video 3D Swiper.</p>
+                    <div class="dev-tech-tags">
+                        <span class="tech-pill">JavaScript</span>
+                        <span class="tech-pill">HTML5 / CSS3</span>
+                        <span class="tech-pill">GSAP</span>
+                    </div>
+                    <div class="dev-card-footer">
+                        <button class="dev-btn dev-details-btn" 
+                            data-title="SAJO PORTFOLIO ENGINE v2.0"
+                            data-file="portfolio_engine.js"
+                            data-tag="WEB DEVELOPMENT / INTERACTIVE FRONTEND"
+                            data-desc="Aplicación web interactiva responsive con arquitectura Vanilla JS. Implementa un motor dinámico de glitch programado letra por letra, paleta cromática editorial personalizada, filtrado CSS con matrices de color y visualizador modal multimodal."
+                            data-stack="JavaScript ES6+, HTML5 Semantic, CSS3 Custom Properties, GSAP 3.12"
+                            data-code="function fireRandomGlitch(chars) {&#10;    const target = chars[Math.floor(Math.random() * chars.length)];&#10;    target.classList.add('char-glitch');&#10;    setTimeout(() =&gt; target.classList.remove('char-glitch'), 400);&#10;}"
+                            data-github="https://github.com/SajoOP/PortfolioSajo"
+                            data-demo="https://sajoop.github.io/PortfolioSajo/"
+                            data-img="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80">
+                            🔍 INSPECCIONAR PROYECTO
+                        </button>
+                        <a href="https://github.com/SajoOP/PortfolioSajo" target="_blank" rel="noopener" class="dev-btn dev-icon-btn" title="Ver en GitHub">
+                            &lt;/&gt;
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 4: High Performance Algorithms & Data Structures -->
+            <div class="dev-card" data-category="cpp python">
+                <div class="dev-card-header">
+                    <div class="window-dots">
+                        <span class="dot dot-red"></span>
+                        <span class="dot dot-yellow"></span>
+                        <span class="dot dot-green"></span>
+                    </div>
+                    <span class="window-file">core_algorithms.cpp</span>
+                    <span class="dev-status-badge status-cpp">● C++ / JAVA</span>
+                </div>
+                <div class="dev-preview-box">
+                    <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Core Algorithms" class="dev-preview-img" loading="lazy">
+                    <div class="dev-code-overlay">
+                        <pre><code>// Graph & Search Engine
+template &lt;typename T&gt;
+class FastGraph {
+    std::unordered_map&lt;T, std::vector&lt;T&gt;&gt; adj;
+};</code></pre>
+                    </div>
+                </div>
+                <div class="dev-card-body">
+                    <h3 class="dev-title">ALGORITMOS DE ALTO RENDIMIENTO</h3>
+                    <p class="dev-desc">Colección de estructuras de datos optimizadas, grafos y algoritmos de búsqueda desarrollados en C, C++ y Java.</p>
+                    <div class="dev-tech-tags">
+                        <span class="tech-pill">C++</span>
+                        <span class="tech-pill">C</span>
+                        <span class="tech-pill">Java</span>
+                    </div>
+                    <div class="dev-card-footer">
+                        <button class="dev-btn dev-details-btn" 
+                            data-title="CORE ALGORITHMS &amp; DATA STRUCTURES"
+                            data-file="core_algorithms.cpp"
+                            data-tag="C++ / JAVA / HIGH PERFORMANCE"
+                            data-desc="Librería de código y ejercicios de optimización algorítmica enfocados en resolución de grafos, ordenamiento de bajo nivel, gestión manual de memoria en C/C++ y programación orientada a objetos en Java."
+                            data-stack="C++17, C99, Java 17, GCC/Clang"
+                            data-code="template &lt;typename T&gt;&#10;void quick_sort(std::vector&lt;T&gt;&amp; arr, int low, int high) {&#10;    if (low &lt; high) {&#10;        int pi = partition(arr, low, high);&#10;        quick_sort(arr, low, pi - 1);&#10;        quick_sort(arr, pi + 1, high);&#10;    }&#10;}"
+                            data-github="https://github.com/SajoOP"
+                            data-demo=""
+                            data-img="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80">
+                            🔍 INSPECCIONAR PROYECTO
+                        </button>
+                        <a href="https://github.com/SajoOP" target="_blank" rel="noopener" class="dev-btn dev-icon-btn" title="Ver en GitHub">
+                            &lt;/&gt;
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div><!-- /dev-grid -->
     </section>
 
     <!-- ── Arsenal / Skills ───────────────────────────── -->
@@ -369,6 +585,56 @@
                 <button class="close-modal">&times;</button>
             </div>
             <div id="video-container"></div>
+        </div>
+    </div>
+
+    <!-- Dev Project Inspector Modal -->
+    <div id="dev-modal" class="modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content dev-modal-content">
+            <div class="dev-modal-header">
+                <div class="dev-modal-title-wrap">
+                    <span class="dev-prompt">$&gt;&nbsp;sajo-cli --inspect</span>
+                    <h3 id="dev-modal-file">project.py</h3>
+                </div>
+                <button class="close-dev-modal">&times;</button>
+            </div>
+            <div class="dev-modal-body">
+                <div class="dev-modal-grid">
+                    <div class="dev-modal-main">
+                        <span class="dev-modal-tag" id="dev-modal-tag">GAME DEV</span>
+                        <h2 id="dev-modal-title">NOMBRE DEL PROYECTO</h2>
+                        <p id="dev-modal-desc" class="dev-modal-desc"></p>
+                        
+                        <div class="dev-modal-section-title">&gt; TECH STACK</div>
+                        <div id="dev-modal-stack" class="dev-modal-stack-pills"></div>
+
+                        <div class="dev-modal-section-title">&gt; ARCHIVO DE CÓDIGO / SNIPPET</div>
+                        <div class="dev-code-window">
+                            <div class="code-header">
+                                <span class="code-dot dot-red"></span>
+                                <span class="code-dot dot-yellow"></span>
+                                <span class="code-dot dot-green"></span>
+                                <span id="dev-modal-code-lang" class="code-lang-label">SOURCE CODE</span>
+                            </div>
+                            <pre><code id="dev-modal-code"></code></pre>
+                        </div>
+                    </div>
+                    <div class="dev-modal-side">
+                        <div class="dev-modal-preview-img-wrap">
+                            <img id="dev-modal-img" src="" alt="Project Preview">
+                        </div>
+                        <div class="dev-modal-actions">
+                            <a id="dev-modal-github-link" href="#" target="_blank" rel="noopener" class="cta-button dev-modal-btn">
+                                &lt;/&gt; VER EN GITHUB
+                            </a>
+                            <a id="dev-modal-demo-link" href="#" target="_blank" rel="noopener" class="cta-button cta-secondary dev-modal-btn">
+                                🚀 PROBAR DEMO LIVE
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 

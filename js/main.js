@@ -206,6 +206,105 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // 9. Dev Projects filter tabs
+    document.querySelectorAll('.dev-tab').forEach(tab => {
+        tab.addEventListener('click', () => {
+            document.querySelectorAll('.dev-tab').forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+
+            const filter = tab.dataset.filter;
+
+            document.querySelectorAll('.dev-card').forEach(card => {
+                const categories = (card.dataset.category || '').split(' ');
+                const show = filter === 'all' || categories.includes(filter);
+                card.classList.toggle('hidden', !show);
+            });
+        });
+    });
+
+    // 10. Dev Project Inspector Modal Logic
+    const devModal = document.getElementById('dev-modal');
+    if (devModal) {
+        const devModalOverlay = devModal.querySelector('.modal-overlay');
+        const closeDevBtn = devModal.querySelector('.close-dev-modal');
+
+        const modalFile = document.getElementById('dev-modal-file');
+        const modalTag = document.getElementById('dev-modal-tag');
+        const modalTitle = document.getElementById('dev-modal-title');
+        const modalDesc = document.getElementById('dev-modal-desc');
+        const modalStack = document.getElementById('dev-modal-stack');
+        const modalCodeLang = document.getElementById('dev-modal-code-lang');
+        const modalCode = document.getElementById('dev-modal-code');
+        const modalImg = document.getElementById('dev-modal-img');
+        const modalGithubLink = document.getElementById('dev-modal-github-link');
+        const modalDemoLink = document.getElementById('dev-modal-demo-link');
+
+        function openDevModal(btn) {
+            const data = btn.dataset;
+
+            if (modalFile) modalFile.textContent = data.file || 'project.src';
+            if (modalTag) modalTag.textContent = data.tag || 'SOFTWARE DEV';
+            if (modalTitle) modalTitle.textContent = data.title || 'PROYECTO';
+            if (modalDesc) modalDesc.textContent = data.desc || '';
+            if (modalCodeLang) modalCodeLang.textContent = (data.file || '').toUpperCase();
+            if (modalCode) modalCode.textContent = data.code || '// No code preview available';
+            if (modalImg) modalImg.src = data.img || '';
+
+            // Stack pills
+            if (modalStack) {
+                modalStack.innerHTML = '';
+                const stackItems = (data.stack || '').split(',');
+                stackItems.forEach(item => {
+                    if (item.trim()) {
+                        const pill = document.createElement('span');
+                        pill.className = 'tech-pill';
+                        pill.textContent = item.trim();
+                        modalStack.appendChild(pill);
+                    }
+                });
+            }
+
+            // GitHub & Demo Links
+            if (modalGithubLink) {
+                modalGithubLink.href = data.github || '#';
+            }
+
+            if (modalDemoLink) {
+                if (data.demo && data.demo.trim() !== '') {
+                    modalDemoLink.href = data.demo;
+                    modalDemoLink.style.display = 'inline-block';
+                } else {
+                    modalDemoLink.style.display = 'none';
+                }
+            }
+
+            devModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeDevModal() {
+            devModal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        document.addEventListener('click', (e) => {
+            const btn = e.target.closest('.dev-details-btn');
+            if (btn) {
+                e.preventDefault();
+                openDevModal(btn);
+            }
+        });
+
+        if (closeDevBtn) closeDevBtn.addEventListener('click', closeDevModal);
+        if (devModalOverlay) devModalOverlay.addEventListener('click', closeDevModal);
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && devModal.classList.contains('active')) {
+                closeDevModal();
+            }
+        });
+    }
+
     // 7. Video Modal Logic
     const modal = document.getElementById('video-modal');
     const modalOverlay = modal.querySelector('.modal-overlay');
