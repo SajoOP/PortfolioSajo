@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Graphite background -->
+  <rect width="32" height="32" fill="#333333"/>
+  <!-- Blue Slate inner border frame -->
+  <rect x="1.5" y="1.5" width="29" height="29" fill="none" stroke="#666a86" stroke-width="1.5"/>
+  <!-- Powder Blue glitch ghost offset (+2px right, +2px down) -->
+  <text x="18.5" y="25"
+        text-anchor="middle"
+        font-family="'Arial Black', Arial, sans-serif"
+        font-weight="900"
+        font-size="23"
+        fill="#95b8d1"
+        opacity="0.55">S</text>
+  <!-- Cherry Blossom main letter -->
+  <text x="16.5" y="23"
+        text-anchor="middle"
+        font-family="'Arial Black', Arial, sans-serif"
+        font-weight="900"
+        font-size="23"
+        fill="#edafb8">S</text>
+</svg>

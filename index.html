@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAJO — Editor & Developer</title>
+    <meta name="description" content="Portafolio de Juan Manuel Cristancho Alvarez — Editor de video y desarrollador de software.">
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+    <link rel="alternate icon" href="./favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+
+    <div id="weird-scrollbar"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar" style="opacity: 0;">
+        <div class="nav-content">
+            <a href="#" class="logo">SAJO</a>
+            <ul class="nav-links">
+                <li><a href="#hero">INICIO</a></li>
+                <li><a href="#works">VIDEO</a></li>
+                <li><a href="#skills">SKILLS</a></li>
+                <li><a href="#contact">CONTACTO</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="hero" class="hero">
+        <div class="massive-name-container">
+            <h1 class="massive-name" id="name-glitch-target" data-text="JUAN MANUEL CRISTANCHO ALVAREZ">JUAN MANUEL CRISTANCHO ALVAREZ</h1>
+        </div>
+
+        <!-- Nickname — Terminal style -->
+        <div class="nickname-bar" id="nickname-bar" style="opacity: 0;">
+            <span class="nick-prompt">$&gt;&nbsp;</span><span class="nick-text">SAJO</span><span class="nick-cursor">▋</span>
+        </div>
+
+        <div class="hero-content" id="hero-content" style="opacity: 0;">
+            <h2 class="hero-title">Editor <span class="highlight-text">&amp;</span> Desarrollador</h2>
+            <p class="hero-subtitle">Corto frames y escribo código con el mismo nivel de obsesión. Dos mundos distintos, un estándar idéntico: si puede hacerse mejor, lo hago mejor.</p>
+            <div class="hero-cta-group">
+                <a href="#works" class="cta-button">VER VIDEOS</a>
+                <a href="#skills" class="cta-button cta-secondary">MI ARSENAL</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ── Video Carousel ─────────────────────────────── -->
+    <section id="works" class="portfolio-section">
+        <div class="section-header">
+            <h2>PROYECTOS — VIDEO</h2>
+            <p>Pasa el ratón sobre las tarjetas · Haz clic en el título o botón para ver completo.</p>
+        </div>
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="video-card">
+                        <video class="hover-video" muted loop playsinline poster="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80">
+                            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                        </video>
+                        <div class="video-overlay">
+                            <h3 class="slide-title">COMERCIAL</h3>
+                            <p>Edición y corrección de color.</p>
+                            <button class="view-full-btn" data-video="https://www.w3schools.com/html/mov_bbb.mp4" data-type="mp4" data-title="COMERCIAL">VER COMPLETO ▶</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="video-card">
+                        <video class="hover-video" muted loop playsinline poster="https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80">
+                            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                        </video>
+                        <div class="video-overlay">
+                            <h3 class="slide-title">VIDEOCLIP</h3>
+                            <p>Ritmo visual y transiciones.</p>
+                            <button class="view-full-btn" data-video="https://www.w3schools.com/html/mov_bbb.mp4" data-type="mp4" data-title="VIDEOCLIP">VER COMPLETO ▶</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="video-card">
+                        <video class="hover-video" muted loop playsinline poster="https://images.unsplash.com/photo-1485846234645-a62644f84728?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80">
+                            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                        </video>
+                        <div class="video-overlay">
+                            <h3 class="slide-title">DOCUMENTAL</h3>
+                            <p>Diseño sonoro y narrativa.</p>
+                            <button class="view-full-btn" data-video="https://www.w3schools.com/html/mov_bbb.mp4" data-type="mp4" data-title="DOCUMENTAL">VER COMPLETO ▶</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="video-card">
+                        <video class="hover-video" muted loop playsinline poster="https://images.unsplash.com/photo-1616469829581-73993eb86b02?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80">
+                            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                        </video>
+                        <div class="video-overlay">
+                            <h3 class="slide-title">SOCIAL MEDIA</h3>
+                            <p>Formato vertical de alto impacto.</p>
+                            <button class="view-full-btn" data-video="https://www.youtube.com/embed/dQw4w9WgXcQ" data-type="youtube" data-title="SOCIAL MEDIA">VER COMPLETO ▶</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="video-card">
+                        <video class="hover-video" muted loop playsinline poster="https://images.unsplash.com/photo-1536240478700-b869ad10a2ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80">
+                            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                        </video>
+                        <div class="video-overlay">
+                            <h3 class="slide-title">CORTOMETRAJE</h3>
+                            <p>Narrativa y montaje creativo.</p>
+                            <button class="view-full-btn" data-video="https://www.w3schools.com/html/mov_bbb.mp4" data-type="mp4" data-title="CORTOMETRAJE">VER COMPLETO ▶</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="video-card">
+                        <video class="hover-video" muted loop playsinline poster="https://images.unsplash.com/photo-1524712245354-2c4e5e7121c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80">
+                            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                        </video>
+                        <div class="video-overlay">
+                            <h3 class="slide-title">MOTION GRAPHICS</h3>
+                            <p>Animación y diseño en movimiento.</p>
+                            <button class="view-full-btn" data-video="https://www.w3schools.com/html/mov_bbb.mp4" data-type="mp4" data-title="MOTION GRAPHICS">VER COMPLETO ▶</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+    <!-- ── Arsenal / Skills ───────────────────────────── -->
+    <section id="skills" class="skills-section">
+        <div class="section-header">
+            <h2>ARSENAL</h2>
+            <p>Dos mundos. Un mismo nivel de obsesión.</p>
+        </div>
+
+        <div class="skills-tabs" id="skills-tabs">
+            <button class="skill-tab active" data-filter="all">TODO</button>
+            <button class="skill-tab" data-filter="dev">&lt;/&gt; DEV</button>
+            <button class="skill-tab" data-filter="creative">◉ CREATIVO</button>
+            <button class="skill-tab" data-filter="lang">◎ IDIOMAS</button>
+        </div>
+
+        <div class="skills-grid" id="skills-grid">
+
+            <!-- ── DEV (Devicons via jsDelivr — always works) ── -->
+            <div class="skill-card" data-category="dev">
+                <div class="skill-icon-wrap">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python" class="skill-icon" loading="lazy">
+                </div>
+                <span class="skill-name">Python</span>
+                <span class="skill-tag dev-tag">&lt;/&gt;</span>
+            </div>
+            <div class="skill-card" data-category="dev">
+                <div class="skill-icon-wrap">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="JavaScript" class="skill-icon" loading="lazy">
+                </div>
+                <span class="skill-name">JavaScript</span>
+                <span class="skill-tag dev-tag">&lt;/&gt;</span>
+            </div>
+            <div class="skill-card" data-category="dev">
+                <div class="skill-icon-wrap">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" alt="Java" class="skill-icon" loading="lazy">
+                </div>
+                <span class="skill-name">Java</span>
+                <span class="skill-tag dev-tag">&lt;/&gt;</span>
+            </div>
+            <div class="skill-card" data-category="dev">
+                <div class="skill-icon-wrap">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" alt="C++" class="skill-icon" loading="lazy">
+                </div>
+                <span class="skill-name">C++</span>
+                <span class="skill-tag dev-tag">&lt;/&gt;</span>
+            </div>
+            <div class="skill-card" data-category="dev">
+                <div class="skill-icon-wrap">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg" alt="C" class="skill-icon" loading="lazy">
+                </div>
+                <span class="skill-name">C</span>
+                <span class="skill-tag dev-tag">&lt;/&gt;</span>
+            </div>
+            <div class="skill-card" data-category="dev">
+                <div class="skill-icon-wrap">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg" alt="VS Code" class="skill-icon" loading="lazy">
+                </div>
+                <span class="skill-name">VS Code</span>
+                <span class="skill-tag dev-tag">&lt;/&gt;</span>
+            </div>
+            <div class="skill-card" data-category="dev">
+                <div class="skill-icon-wrap">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jetbrains/jetbrains-original.svg" alt="JetBrains" class="skill-icon" loading="lazy">
+                </div>
+                <span class="skill-name">JetBrains</span>
+                <span class="skill-tag dev-tag">&lt;/&gt;</span>
+            </div>
+            <div class="skill-card" data-category="dev">
+                <div class="skill-icon-wrap">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/godot/godot-original.svg" alt="Godot" class="skill-icon" loading="lazy">
+                </div>
+                <span class="skill-name">Godot</span>
+                <span class="skill-tag dev-tag">&lt;/&gt;</span>
+            </div>
+
+            <!-- ── CREATIVE ── -->
+            <div class="skill-card" data-category="creative">
+                <div class="skill-icon-wrap">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/premierepro/premierepro-original.svg" alt="Premiere Pro" class="skill-icon" loading="lazy">
+                </div>
+                <span class="skill-name">Premiere Pro</span>
+                <span class="skill-tag creative-tag">◉</span>
+            </div>
+            <div class="skill-card" data-category="creative">
+                <div class="skill-icon-wrap">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/aftereffects/aftereffects-original.svg" alt="After Effects" class="skill-icon" loading="lazy">
+                </div>
+                <span class="skill-name">After Effects</span>
+                <span class="skill-tag creative-tag">◉</span>
+            </div>
+            <div class="skill-card" data-category="creative">
+                <div class="skill-icon-wrap">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/photoshop/photoshop-original.svg" alt="Photoshop" class="skill-icon" loading="lazy">
+                </div>
+                <span class="skill-name">Photoshop</span>
+                <span class="skill-tag creative-tag">◉</span>
+            </div>
+            <div class="skill-card" data-category="creative">
+                <div class="skill-icon-wrap">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/illustrator/illustrator-original.svg" alt="Illustrator" class="skill-icon" loading="lazy">
+                </div>
+                <span class="skill-name">Illustrator</span>
+                <span class="skill-tag creative-tag">◉</span>
+            </div>
+            <div class="skill-card" data-category="creative">
+                <div class="skill-icon-wrap">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/inkscape/inkscape-original.svg" alt="Inkscape" class="skill-icon" loading="lazy">
+                </div>
+                <span class="skill-name">Inkscape</span>
+                <span class="skill-tag creative-tag">◉</span>
+            </div>
+            <!-- DaVinci Resolve: not in Devicons, using CSS badge -->
+            <div class="skill-card" data-category="creative">
+                <div class="skill-icon-wrap">
+                    <div class="davinci-badge">DV</div>
+                </div>
+                <span class="skill-name">DaVinci Resolve</span>
+                <span class="skill-tag creative-tag">◉</span>
+            </div>
+            <div class="skill-card" data-category="creative">
+                <div class="skill-icon-wrap skill-icon-emoji">🎨</div>
+                <span class="skill-name">Piskel</span>
+                <span class="skill-tag creative-tag">◉</span>
+            </div>
+
+            <!-- ── IDIOMAS ── -->
+            <div class="skill-card lang-card" data-category="lang">
+                <div class="skill-icon-wrap skill-icon-emoji">🇬🇧</div>
+                <span class="skill-name">Inglés</span>
+                <span class="skill-level">B2</span>
+                <span class="skill-tag lang-tag">◎</span>
+            </div>
+            <div class="skill-card lang-card" data-category="lang">
+                <div class="skill-icon-wrap skill-icon-emoji">🇮🇹</div>
+                <span class="skill-name">Italiano</span>
+                <span class="skill-level">B2</span>
+                <span class="skill-tag lang-tag">◎</span>
+            </div>
+
+        </div><!-- /skills-grid -->
+
+        <div class="traits-bar">
+            <span class="trait">PERFECCIONISTA</span>
+            <span class="trait-sep">×</span>
+            <span class="trait">OBSESIONADO</span>
+            <span class="trait-sep">×</span>
+            <span class="trait">OPTIMISTA</span>
+        </div>
+    </section>
+
+    <!-- ── Contact ────────────────────────────────────── -->
+    <section id="contact" class="contact-section">
+        <div class="contact-header">
+            <h2>¿HABLAMOS?</h2>
+            <p>Código o frames. En ambos idiomas te respondo.</p>
+        </div>
+
+        <!-- Inline SVGs: 100% reliable, no external CDN needed -->
+        <div class="contact-links">
+
+            <!-- Email -->
+            <a href="mailto:jcristanchoa@unal.edu.co" class="contact-link" id="contact-email">
+                <div class="contact-icon-box">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#333333">
+                        <path d="M20 4H4C2.9 4 2 4.9 2 6v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
+                </div>
+                <div class="contact-info">
+                    <span class="contact-platform">EMAIL</span>
+                    <span class="contact-handle">jcristanchoa@unal.edu.co</span>
+                </div>
+            </a>
+
+            <!-- GitHub -->
+            <a href="https://github.com/SajoOP" target="_blank" rel="noopener" class="contact-link" id="contact-github">
+                <div class="contact-icon-box">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#333333">
+                        <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+                    </svg>
+                </div>
+                <div class="contact-info">
+                    <span class="contact-platform">GITHUB</span>
+                    <span class="contact-handle">SajoOP</span>
+                </div>
+            </a>
+
+            <!-- LinkedIn -->
+            <a href="https://www.linkedin.com/in/juan-manuel-cristancho-alvarez-a8504336a/" target="_blank" rel="noopener" class="contact-link" id="contact-linkedin">
+                <div class="contact-icon-box">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#333333">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                </div>
+                <div class="contact-info">
+                    <span class="contact-platform">LINKEDIN</span>
+                    <span class="contact-handle">Juan M. Cristancho</span>
+                </div>
+            </a>
+
+            <!-- Instagram -->
+            <a href="https://instagram.com/sajo_jm" target="_blank" rel="noopener" class="contact-link" id="contact-instagram">
+                <div class="contact-icon-box">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#333333">
+                        <path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 3.252.148 4.771 1.691 4.919 4.919.049 1.265.064 1.645.064 4.849 0 3.205-.012 3.584-.064 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+                    </svg>
+                </div>
+                <div class="contact-info">
+                    <span class="contact-platform">INSTAGRAM</span>
+                    <span class="contact-handle">@sajo_jm</span>
+                </div>
+            </a>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; <span id="year"></span> &nbsp;Juan "SAJO" Cristancho &mdash; Editor · Developer</p>
+    </footer>
+
+    <!-- Video Modal -->
+    <div id="video-modal" class="modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title">— VIDEO —</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div id="video-container"></div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
