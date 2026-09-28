@@ -620,6 +620,18 @@ a.logo {
     overflow: hidden;
 }
 
+/* YouTube Shorts: vertical modal */
+.modal-shorts {
+    max-width: 420px;
+    width: min(420px, 90vw);
+}
+
+.modal-shorts #video-container {
+    aspect-ratio: 9 / 16;
+    max-height: 75vh;
+}
+
+
 /* Ajustes controles Swiper */
 .swiper-button-next,
 .swiper-button-prev {

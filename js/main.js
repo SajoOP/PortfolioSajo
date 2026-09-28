@@ -161,34 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // 6. Inline Video Playback Logic
-    function playActiveVideo() {
-        document.querySelectorAll('.hover-video').forEach(v => v.pause());
-        const activeSlide = document.querySelector('.swiper-slide-active');
-        if (activeSlide) {
-            const activeVideo = activeSlide.querySelector('video');
-            if (activeVideo) {
-                activeVideo.play().catch(e => console.log("Autoplay prevented:", e));
-            }
-        }
-    }
-
-    swiper.on('slideChangeTransitionEnd', playActiveVideo);
-
-    // Hover play for any card
-    document.querySelectorAll('.video-card').forEach(card => {
-        const vid = card.querySelector('video');
-        if (vid) {
-            card.addEventListener('mouseenter', () => vid.play().catch(e => e));
-            card.addEventListener('mouseleave', () => {
-                if (!card.closest('.swiper-slide').classList.contains('swiper-slide-active')) {
-                    vid.pause();
-                }
-            });
-        }
-    });
-
-    setTimeout(playActiveVideo, 500);
+    // 6. Cards now use YouTube thumbnails (img), no inline video playback needed.
 
     // 8. Skills filter tabs
     document.querySelectorAll('.skill-tab').forEach(tab => {
@@ -305,22 +278,69 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // 6. YouTube Hover Preview — on hover show a muted autoplay iframe
+    const SHORTS_IDS = ['gqqetFvpSzs', 'Es2HZDn27NA', 'n9A1JYE-XEA'];
+
+    document.querySelectorAll('.video-card').forEach(card => {
+        const thumb = card.querySelector('img.hover-video');
+        const btn   = card.querySelector('.view-full-btn');
+        if (!thumb || !btn) return;
+
+        const embedBase = btn.dataset.video; // e.g. https://www.youtube.com/embed/XXXXX
+        const videoId   = embedBase.split('/embed/')[1] || '';
+        const isShortCard = SHORTS_IDS.includes(videoId);
+
+        let previewFrame = null;
+
+        card.addEventListener('mouseenter', () => {
+            if (previewFrame) return;
+
+            previewFrame = document.createElement('iframe');
+            // autoplay, muted, no controls, loop
+            previewFrame.src = `${embedBase}?autoplay=1&mute=1&controls=0&loop=1&playlist=${videoId}&playsinline=1&rel=0&disablekb=1&modestbranding=1`;
+            previewFrame.allow = 'autoplay; encrypted-media';
+
+            // For Shorts (9:16) displayed in a 16:9 card, scale up to fill
+            const baseStyle = 'position:absolute;top:50%;left:50%;border:none;pointer-events:none;z-index:1;transform:translate(-50%,-50%);';
+            previewFrame.style.cssText = isShortCard
+                ? baseStyle + 'height:300%;width:169%;'   // scale 9:16 to fill 16:9 card
+                : baseStyle + 'width:100%;height:100%;';
+
+            card.appendChild(previewFrame);
+            thumb.style.opacity = '0';
+            thumb.style.transition = 'opacity 0.3s ease';
+        });
+
+        card.addEventListener('mouseleave', () => {
+            if (previewFrame) {
+                previewFrame.remove();
+                previewFrame = null;
+            }
+            thumb.style.opacity = '1';
+        });
+    });
+
     // 7. Video Modal Logic
-    const modal = document.getElementById('video-modal');
-    const modalOverlay = modal.querySelector('.modal-overlay');
-    const modalContent = modal.querySelector('.modal-content');
-    const closeBtn = modal.querySelector('.close-modal');
+    const modal         = document.getElementById('video-modal');
+    const modalOverlay  = modal.querySelector('.modal-overlay');
+    const modalContent  = modal.querySelector('.modal-content');
+    const closeBtn      = modal.querySelector('.close-modal');
     const videoContainer = document.getElementById('video-container');
-    const modalTitle = document.getElementById('modal-title');
+    const modalTitle    = document.getElementById('modal-title');
 
     function openModal(videoSrc, videoType, title) {
         videoContainer.innerHTML = '';
         modalTitle.textContent = title || '';
 
+        // Detect Shorts by video ID for vertical modal layout
+        const videoId = (videoSrc.split('/embed/')[1] || '').split('?')[0];
+        const isShort = SHORTS_IDS.includes(videoId);
+        modalContent.classList.toggle('modal-shorts', isShort);
+
         if (videoType === 'youtube') {
             const iframe = document.createElement('iframe');
-            iframe.src = videoSrc + '?autoplay=1&rel=0';
-            iframe.allow = 'autoplay; fullscreen';
+            iframe.src = videoSrc + '?autoplay=1&rel=0&modestbranding=1';
+            iframe.allow = 'autoplay; fullscreen; encrypted-media; picture-in-picture';
             iframe.allowFullscreen = true;
             iframe.style.cssText = 'width:100%;height:100%;border:none;';
             videoContainer.appendChild(iframe);
@@ -341,9 +361,10 @@ document.addEventListener('DOMContentLoaded', () => {
         modal.classList.remove('active');
         videoContainer.innerHTML = '';
         document.body.style.overflow = '';
+        modalContent.classList.remove('modal-shorts');
     }
 
-    // Delegate click on all view-full-btn (including Swiper clones)
+    // Delegate click on all view-full-btn (works on Swiper clones too)
     document.addEventListener('click', (e) => {
         const btn = e.target.closest('.view-full-btn');
         if (btn) {
@@ -353,7 +374,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Also make the slide title clickable
+    // Also make slide title clickable
     document.addEventListener('click', (e) => {
         const title = e.target.closest('.slide-title');
         if (title) {
