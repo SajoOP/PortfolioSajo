@@ -18,6 +18,32 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Mobile Navigation Toggle
+    const navToggle = document.getElementById('nav-toggle');
+    const navLinks = document.getElementById('nav-links');
+
+    if (navToggle && navLinks) {
+        navToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            navToggle.classList.toggle('open');
+            navLinks.classList.toggle('active');
+        });
+
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navToggle.classList.remove('open');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!navToggle.contains(e.target) && !navLinks.contains(e.target)) {
+                navToggle.classList.remove('open');
+                navLinks.classList.remove('active');
+            }
+        });
+    }
+
     // 3. Name Animation - Split by WORDS to prevent mid-word line breaks
     const nameTarget = document.getElementById('name-glitch-target');
     const nameText = nameTarget.getAttribute('data-text') || nameTarget.textContent.trim();
@@ -51,9 +77,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // 4. GSAP Cinematic Entrance Animation
     const tl = gsap.timeline();
 
-    tl.fromTo('.char-wrap',
+    tl.fromTo('#hero-greeting',
+        { opacity: 0, y: -20 },
+        { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' }
+    )
+    .fromTo('.char-wrap',
         { y: -120, opacity: 0, rotationX: 90, scale: 1.5 },
-        { y: 0, opacity: 1, rotationX: 0, scale: 1, duration: 0.8, stagger: 0.04, ease: 'power4.out' }
+        { y: 0, opacity: 1, rotationX: 0, scale: 1, duration: 0.8, stagger: 0.04, ease: 'power4.out' },
+        '-=0.2'
     )
     .to('#name-glitch-target', {
         onComplete: () => startRandomGlitch(allCharSpans)
