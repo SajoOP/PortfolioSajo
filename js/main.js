@@ -336,11 +336,8 @@ document.addEventListener('DOMContentLoaded', () => {
             previewFrame.src = `${embedBase}?autoplay=1&mute=1&controls=0&loop=1&playlist=${videoId}&playsinline=1&rel=0&disablekb=1&modestbranding=1`;
             previewFrame.allow = 'autoplay; encrypted-media';
 
-            // For Shorts (9:16) displayed in a 16:9 card, scale up to fill
-            const baseStyle = 'position:absolute;top:50%;left:50%;border:none;pointer-events:none;z-index:1;transform:translate(-50%,-50%);';
-            previewFrame.style.cssText = isShortCard
-                ? baseStyle + 'height:300%;width:169%;'   // scale 9:16 to fill 16:9 card
-                : baseStyle + 'width:100%;height:100%;';
+            // Keep preview strictly within the 16:9 card box for all videos
+            previewFrame.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;border:none;pointer-events:none;z-index:1;background:#000;';
 
             card.appendChild(previewFrame);
             thumb.style.opacity = '0';
@@ -369,11 +366,6 @@ document.addEventListener('DOMContentLoaded', () => {
         videoContainer.innerHTML = '';
         modalTitle.textContent = title || '';
 
-        // Detect Shorts by video ID for vertical modal layout
-        const videoId = (videoSrc.split('/embed/')[1] || '').split('?')[0];
-        const isShort = SHORTS_IDS.includes(videoId);
-        modalContent.classList.toggle('modal-shorts', isShort);
-
         if (videoType === 'youtube') {
             const iframe = document.createElement('iframe');
             iframe.src = videoSrc + '?autoplay=1&rel=0&modestbranding=1';
@@ -398,7 +390,6 @@ document.addEventListener('DOMContentLoaded', () => {
         modal.classList.remove('active');
         videoContainer.innerHTML = '';
         document.body.style.overflow = '';
-        modalContent.classList.remove('modal-shorts');
     }
 
     // Delegate click on all view-full-btn (works on Swiper clones too)
