@@ -282,9 +282,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const SHORTS_IDS = ['gqqetFvpSzs', 'Es2HZDn27NA', 'n9A1JYE-XEA'];
 
     document.querySelectorAll('.video-card').forEach(card => {
+        // Skip external-only cards (e.g. IMAGECHEF, to prevent third-party copyright embed block)
+        if (card.classList.contains('video-card-external') || card.dataset.externalUrl) {
+            return;
+        }
+
         const thumb = card.querySelector('img.hover-video');
         const btn   = card.querySelector('.view-full-btn');
-        if (!thumb || !btn) return;
+        if (!thumb || !btn || !btn.dataset.video) return;
 
         const embedBase = btn.dataset.video; // e.g. https://www.youtube.com/embed/XXXXX
         const videoId   = embedBase.split('/embed/')[1] || '';
@@ -329,6 +334,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalTitle    = document.getElementById('modal-title');
 
     function openModal(videoSrc, videoType, title) {
+        if (!videoSrc) return;
         videoContainer.innerHTML = '';
         modalTitle.textContent = title || '';
 
@@ -368,9 +374,18 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('click', (e) => {
         const btn = e.target.closest('.view-full-btn');
         if (btn) {
-            e.preventDefault();
-            e.stopPropagation();
-            openModal(btn.dataset.video, btn.dataset.type, btn.dataset.title);
+            const externalUrl = btn.dataset.externalUrl || (btn.tagName === 'A' ? btn.getAttribute('href') : null);
+            if (externalUrl && externalUrl.startsWith('http')) {
+                window.open(externalUrl, '_blank', 'noopener,noreferrer');
+                e.preventDefault();
+                e.stopPropagation();
+                return;
+            }
+            if (btn.dataset.video) {
+                e.preventDefault();
+                e.stopPropagation();
+                openModal(btn.dataset.video, btn.dataset.type, btn.dataset.title);
+            }
         }
     });
 
@@ -378,11 +393,30 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('click', (e) => {
         const title = e.target.closest('.slide-title');
         if (title) {
+            const card = title.closest('.video-card');
+            if (card && (card.dataset.externalUrl || card.classList.contains('video-card-external'))) {
+                const extUrl = card.dataset.externalUrl || 'https://youtu.be/WhPzUXGopUI';
+                window.open(extUrl, '_blank', 'noopener,noreferrer');
+                return;
+            }
             const overlay = title.closest('.video-overlay');
             const btn = overlay ? overlay.querySelector('.view-full-btn') : null;
             if (btn) {
-                openModal(btn.dataset.video, btn.dataset.type, btn.dataset.title);
+                if (btn.dataset.externalUrl) {
+                    window.open(btn.dataset.externalUrl, '_blank', 'noopener,noreferrer');
+                } else if (btn.dataset.video) {
+                    openModal(btn.dataset.video, btn.dataset.type, btn.dataset.title);
+                }
             }
+        }
+    });
+
+    // Clicking on an external card directly opens YouTube
+    document.addEventListener('click', (e) => {
+        const extCard = e.target.closest('.video-card-external');
+        if (extCard && !e.target.closest('.view-full-btn') && !e.target.closest('.slide-title')) {
+            const extUrl = extCard.dataset.externalUrl || 'https://youtu.be/WhPzUXGopUI';
+            window.open(extUrl, '_blank', 'noopener,noreferrer');
         }
     });
 
