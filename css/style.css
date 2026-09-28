@@ -1581,27 +1581,6 @@ a.logo {
     transition: transform 0.2s ease;
 }
 
-/* DaVinci Resolve — CSS badge (not in Devicons) */
-.davinci-badge {
-    width: 54px;
-    height: 54px;
-    background: #1c2b3a;
-    border: 2px solid #4a9eff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--font-main);
-    font-weight: 900;
-    font-size: 1rem;
-    color: #4a9eff;
-    letter-spacing: 0.05em;
-    transition: border-color 0.2s ease, color 0.2s ease;
-}
-
-.skill-card:hover .davinci-badge {
-    border-color: var(--accent-1);
-    color: var(--accent-1);
-}
 
 .skill-card:hover .skill-icon-emoji {
     transform: scale(1.15);
