@@ -1155,6 +1155,24 @@ a.logo {
     filter: brightness(0.4) blur(1px);
 }
 
+.dev-preview-logo-box {
+    background: radial-gradient(circle at center, #18202e 0%, #0a0c12 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dev-preview-img.dev-preview-logo-img {
+    object-fit: contain;
+    padding: 1.8rem;
+    filter: drop-shadow(0 0 16px rgba(0, 255, 102, 0.35)) brightness(1.05);
+}
+
+.dev-card:hover .dev-preview-img.dev-preview-logo-img {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 20px rgba(0, 255, 102, 0.6)) brightness(0.25) blur(1px);
+}
+
 .dev-code-overlay {
     position: absolute;
     top: 0;
@@ -1434,12 +1452,17 @@ a.logo {
     border: 3px solid var(--text-primary);
     overflow: hidden;
     margin-bottom: 1.5rem;
+    background: radial-gradient(circle at center, #1b212f 0%, #0a0d14 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .dev-modal-preview-img-wrap img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    padding: 1rem;
 }
 
 .dev-modal-actions {
