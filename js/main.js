@@ -226,7 +226,212 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 10. Dev Project Inspector Modal Logic
+    // 10. Dev Project Inspector Modal Logic (Rich Markdown Specs & Decorative Code)
+    const DEV_PROJECTS_DATA = {
+        scalia: {
+            id: 'scalia',
+            title: 'SCALIA — Plataforma de Teoría Musical e Instrumentos',
+            tag: 'JAVA / DESKTOP / SOFTWARE ENGINEERING',
+            badge: '● DESKTOP ENGINE',
+            file: 'Main.java',
+            lang: 'JAVA / JAVAFX',
+            img: './img/scalia.png',
+            github: 'https://github.com/JustPersy/IngeSoft1',
+            demo: '',
+            stack: ['Java 17', 'JavaFX 21', 'MySQL 8.0', 'JDBC Driver', 'JUnit 5', 'Maven', 'MVC / DAO Architecture'],
+            docHtml: `
+                <div class="md-block">
+                    <h4>// RESUMEN EJECUTIVO (README.MD)</h4>
+                    <p>Aplicación de escritorio interactiva desarrollada con <strong>Java 17</strong> y <strong>JavaFX</strong> para <em>Ingeniería de Software 1 (Universidad Nacional de Colombia)</em>. Diseñada como una estación de trabajo educativa que transforma conceptos musicales abstractos en herramientas pedagógicas interactivas con persistencia relacional en <strong>MySQL</strong>.</p>
+                </div>
+
+                <div class="md-block">
+                    <h4>// CAPACIDADES & MÓDULOS DEL SISTEMA</h4>
+                    <ul class="md-features-list">
+                        <li><strong>🎼 Motor de Teoría Musical:</strong> Algoritmo de cálculo armónico capaz de construir escalas diatónicas, pentatónicas y modos griegos, además de cifrado de acordes (tríadas, tétradas y tensiones) e intervalos dinámicos.</li>
+                        <li><strong>🎸 Visualizador Interactivo de Instrumentos:</strong> Mapeo paramétrico de diapasones de guitarra, bajo y piano con representación gráfica en tiempo real de digitación y escalas.</li>
+                        <li><strong>🎯 Afinador Acústico & Biblioteca:</strong> Afinador digital con afinaciones estándar y alternativas (Drop D, DADGAD, Open G, Half-Step Down) y visualización de frecuencias.</li>
+                        <li><strong>💾 Persistencia Relacional MySQL:</strong> Arquitectura <em>DAO (Data Access Object)</em> con conexión JDBC nativa para usuarios, biblioteca de afinaciones personalizadas y registro de progreso.</li>
+                        <li><strong>🧪 Suite de Pruebas Unitarias con JUnit 5:</strong> Cobertura exhaustiva sobre la lógica de construcción de intervalos, consistencia relacional y cálculo de frecuencias.</li>
+                    </ul>
+                </div>
+
+                <div class="md-block">
+                    <h4>// ARQUITECTURA & PATRONES DE DISEÑO</h4>
+                    <div class="md-arch-chips">
+                        <span class="arch-chip">Patrón MVC (Model-View-Controller)</span>
+                        <span class="arch-chip">Patrón DAO para persistencia MySQL</span>
+                        <span class="arch-chip">FXML + CSS3 desacoplado para interfaz gráfica</span>
+                        <span class="arch-chip">JavaFX Scene Graph optimizado</span>
+                    </div>
+                </div>
+            `,
+            codeSnippetHtml: `<span class="co-cmt">// Scalia Desktop Application - Main Engine</span>
+<span class="co-kw">package</span> com.scalia;
+
+<span class="co-kw">import</span> javafx.application.Application;
+<span class="co-kw">import</span> javafx.fxml.FXMLLoader;
+<span class="co-kw">import</span> javafx.scene.Parent;
+<span class="co-kw">import</span> javafx.scene.Scene;
+<span class="co-kw">import</span> javafx.stage.Stage;
+<span class="co-kw">import</span> com.scalia.models.User;
+
+<span class="co-kw">public class</span> <span class="co-cls">Main</span> <span class="co-kw">extends</span> <span class="co-cls">Application</span> {
+    <span class="co-ann">@Override</span>
+    <span class="co-kw">public void</span> <span class="co-fn">start</span>(<span class="co-cls">Stage</span> stage) <span class="co-kw">throws</span> Exception {
+        <span class="co-cls">FXMLLoader</span> loader = <span class="co-kw">new</span> <span class="co-cls">FXMLLoader</span>(
+            getClass().<span class="co-fn">getResource</span>(<span class="co-str">"/fxml/SplashView.fxml"</span>)
+        );
+        <span class="co-cls">Parent</span> root = loader.<span class="co-fn">load</span>();
+        <span class="co-cls">Scene</span> scene = <span class="co-kw">new</span> <span class="co-cls">Scene</span>(root, <span class="co-num">1080</span>, <span class="co-num">720</span>);
+        scene.<span class="co-fn">getStylesheets</span>().<span class="co-fn">add</span>(
+            getClass().<span class="co-fn">getResource</span>(<span class="co-str">"/css/styles.css"</span>).<span class="co-fn">toExternalForm</span>()
+        );
+        stage.<span class="co-fn">setTitle</span>(<span class="co-str">"Scalia - Music Theory Platform"</span>);
+        stage.<span class="co-fn">setScene</span>(scene);
+        stage.<span class="co-fn">show</span>();
+    }
+
+    <span class="co-kw">public static void</span> <span class="co-fn">main</span>(String[] args) {
+        <span class="co-fn">launch</span>(args);
+    }
+}`
+        },
+
+        partcosmos: {
+            id: 'partcosmos',
+            title: 'PARTÍCULAS & COSMOS — Simulador Físico 2D',
+            tag: 'PHYSICS SIMULATION / INTERACTIVE WEB / GAME DEV',
+            badge: '● MOTOR EN CANVAS',
+            file: 'universe.js',
+            lang: 'JAVASCRIPT ES6+',
+            img: './img/partcosmos.png',
+            github: 'https://github.com/SajoOP/Particulas-Cosmos',
+            demo: 'https://sajoop.github.io/Particulas-Cosmos/',
+            stack: ['JavaScript ES6+', 'HTML5 Canvas API', 'Velocity Verlet Integration', 'Langevin Dynamics', 'Yukawa Potential', 'Box-Muller Transform'],
+            docHtml: `
+                <div class="md-block">
+                    <h4>// RESUMEN EJECUTIVO (README.MD)</h4>
+                    <p>Simulador físico interactivo en 2D desarrollado en <strong>JavaScript puro</strong> sobre <strong>HTML5 Canvas</strong>, sin librerías de física de terceros. Explora el comportamiento emergente de sistemas dinámicos a dos escalas extremas: <strong>Escala Cósmica</strong> (astrofísica gravitacional N-cuerpos) y <strong>Escala Atómica</strong> (fuerzas electromagnéticas y fuerza nuclear fuerte).</p>
+                </div>
+
+                <div class="md-block">
+                    <h4>// FUNDAMENTOS FÍSICOS & MODELOS MATEMÁTICOS</h4>
+                    <ul class="md-features-list">
+                        <li><strong>🌌 Escala Cósmica — N-Cuerpos con Softening:</strong> Gravitación newtoniana modificada con factor de suavizado (Softening ε): F = G·(m₁m₂) / (r² + ε²)^(3/2) · r. Previene singularidades numéricas (división por cero y aceleración infinita) durante acercamientos críticos.</li>
+                        <li><strong>💥 Colisiones Inelásticas & Conservación del Momento:</strong> Los astros que colisionan se fusionan en un único cuerpo de mayor masa, cuya velocidad final preserva estrictamente la Ley de Conservación del Momento Lineal: v_f = (m₁v₁ + m₂v₂) / (m₁ + m₂).</li>
+                        <li><strong>⚛️ Escala Atómica — Fuerza Fuerte (Potencial de Yukawa):</strong> Protones y neutrones experimentan una curva semiclásica de Yukawa con tres zonas: repulsión de núcleo duro a distancia mínima (emulando exclusión de Pauli), fuerte atracción de enlace a escala nuclear y decaimiento exponencial e^(-r/R).</li>
+                        <li><strong>🔥 Termostato de Langevin (Transformada de Box-Muller):</strong> Control de agitación térmica y temperatura constante aplicando fricción gaussiana calculada numéricamente con la transformada de Box-Muller para generar ruido blanco con distribución normal.</li>
+                        <li><strong>⚡ Integrador Velocity Verlet:</strong> Algoritmo simpléctico de segundo orden con óptima conservación de la energía mecánica a largo plazo frente a Euler tradicional.</li>
+                    </ul>
+                </div>
+
+                <div class="md-block">
+                    <h4>// CAPACIDADES INTERACTIVAS</h4>
+                    <div class="md-arch-chips">
+                        <span class="arch-chip">Simulación N-cuerpos en tiempo real a 60 FPS</span>
+                        <span class="arch-chip">Creación interactiva de astros y partículas con el ratón</span>
+                        <span class="arch-chip">Control de constante G, escala temporal y termostato</span>
+                        <span class="arch-chip">Renderizado con estela orbital mediante Alpha Blending</span>
+                    </div>
+                </div>
+            `,
+            codeSnippetHtml: `<span class="co-cmt">// Velocity Verlet Integration & Softened N-Body Gravity</span>
+<span class="co-kw">function</span> <span class="co-fn">step</span>(dt) {
+    <span class="co-cmt">// 1. Actualizar posiciones: r(t+dt) = r + v·dt + ½a·dt²</span>
+    bodies.<span class="co-fn">forEach</span>(b =&gt; {
+        b.pos.<span class="co-fn">add</span>(b.vel.<span class="co-fn">scale</span>(dt).<span class="co-fn">add</span>(b.acc.<span class="co-fn">scale</span>(<span class="co-num">0.5</span> * dt * dt)));
+    });
+
+    <span class="co-cmt">// 2. Nuevas aceleraciones con Softening ε (evita singularidades)</span>
+    <span class="co-kw">const</span> newAccels = bodies.<span class="co-fn">map</span>(b =&gt; <span class="co-fn">computeGravity</span>(b, bodies));
+
+    <span class="co-cmt">// 3. Actualizar velocidades: v(t+dt) = v + ½(a(t) + a(t+dt))·dt</span>
+    bodies.<span class="co-fn">forEach</span>((b, i) =&gt; {
+        b.vel.<span class="co-fn">add</span>(b.acc.<span class="co-fn">add</span>(newAccels[i]).<span class="co-fn">scale</span>(<span class="co-num">0.5</span> * dt));
+        b.acc = newAccels[i];
+    });
+}
+
+<span class="co-kw">function</span> <span class="co-fn">computeGravity</span>(body, others) {
+    <span class="co-kw">let</span> ax = <span class="co-num">0</span>, ay = <span class="co-num">0</span>;
+    others.<span class="co-fn">forEach</span>(o =&gt; {
+        <span class="co-kw">if</span> (o === body) <span class="co-kw">return</span>;
+        <span class="co-kw">const</span> dx = o.x - body.x, dy = o.y - body.y;
+        <span class="co-kw">const</span> r2 = dx*dx + dy*dy + EPSILON*EPSILON;
+        <span class="co-kw">const</span> f  = G * o.mass / Math.<span class="co-fn">pow</span>(r2, <span class="co-num">1.5</span>);
+        ax += f * dx; ay += f * dy;
+    });
+    <span class="co-kw">return</span> { x: ax, y: ay };
+}`
+        },
+
+        clickandmunch: {
+            id: 'clickandmunch',
+            title: 'CLICK & MUNCH — Sistema de Órdenes para Restaurantes',
+            tag: 'MICROSERVICES / DISTRIBUTED ARCHITECTURE / EVENT-DRIVEN',
+            badge: '● 10 MICROSERVICIOS',
+            file: 'OrderService.java',
+            lang: 'JAVA / SPRING BOOT & RABBITMQ',
+            img: './img/clickandmunch.jpg',
+            github: 'https://github.com/msbetancourtge/SwArch',
+            demo: '',
+            stack: ['TypeScript', 'Java Spring Boot', 'Python FastAPI', 'RabbitMQ', 'Docker Compose', 'PostgreSQL (x7)', 'MongoDB', 'React', 'React Native Expo'],
+            docHtml: `
+                <div class="md-block">
+                    <h4>// RESUMEN EJECUTIVO (README.MD)</h4>
+                    <p>Plataforma empresarial de gestión de pedidos y comandas para restaurantes diseñada bajo una <strong>arquitectura distribuida de 10 microservicios</strong> y <strong>29 contenedores Docker Compose</strong>. Desarrollada para alta disponibilidad y desacoplamiento asíncrono mediante el <strong>patrón Mediator con RabbitMQ</strong>.</p>
+                </div>
+
+                <div class="md-block">
+                    <h4>// DECISIONES ARQUITECTURALES & COMPONENTES CLAVE</h4>
+                    <ul class="md-features-list">
+                        <li><strong>🐰 Patrón Mediator con RabbitMQ:</strong> Centraliza la comunicación entre productores de eventos (<code>OrderService</code>, <code>ReservationService</code>) y canales de notificación (<code>NotificationService</code>, <code>TelegramWorker</code>), desacoplando completamente los servicios centrales.</li>
+                        <li><strong>🍳 Kitchen Display System (KDS) en Tiempo Real:</strong> Pantalla de comandas para cocineros conectada mediante <strong>WebSockets bidireccionales nativos</strong>, garantizando actualización instantánea sin sobrecarga de polling.</li>
+                        <li><strong>🐍 CheckoutService Especializado en Python (FastAPI):</strong> Microservicio de transacciones y cálculo de propinas/impuestos en Python por su alto rendimiento en operaciones asíncronas de facturación.</li>
+                        <li><strong>🛡️ Single Edge API Gateway:</strong> Punto de acceso único en puerto <code>8080</code> que unifica el enrutamiento HTTP, WebSockets y Server-Sent Events (SSE) hacia los microservicios internos aislados.</li>
+                        <li><strong>🗄️ Persistencia Políglota Aislada:</strong> 7 bases de datos PostgreSQL independientes por servicio, una base MongoDB para catálogo dinámico de menú y PostGIS para geolocalización de restaurantes.</li>
+                        <li><strong>📱 Doble Canal Frontend:</strong> Dashboard web interactivo para administración y KDS (React/Vite/TypeScript) + Aplicación móvil nativa para comensales en React Native con Expo.</li>
+                    </ul>
+                </div>
+
+                <div class="md-block">
+                    <h4>// TOPOLOGÍA DE INFRAESTRUCTURA</h4>
+                    <div class="md-arch-chips">
+                        <span class="arch-chip">29 Contenedores Docker (Docker Compose Orchestrated)</span>
+                        <span class="arch-chip">RabbitMQ AMQP Broker (Topic Exchange)</span>
+                        <span class="arch-chip">Bot de Telegram con colas durables para alertas al cliente</span>
+                        <span class="arch-chip">Monitoreo con Healthchecks en todos los contenedores</span>
+                    </div>
+                </div>
+            `,
+            codeSnippetHtml: `<span class="co-cmt">// OrderService.java — Event-Driven Order Processing with RabbitMQ</span>
+<span class="co-ann">@RestController</span>
+<span class="co-ann">@RequestMapping</span>(<span class="co-str">"/order"</span>)
+<span class="co-kw">public class</span> <span class="co-cls">OrderService</span> {
+    <span class="co-ann">@Autowired</span> <span class="co-kw">private</span> <span class="co-cls">EventBus</span> eventBus;
+    <span class="co-ann">@Autowired</span> <span class="co-kw">private</span> <span class="co-cls">KitchenWebSocketService</span> kitchenWS;
+
+    <span class="co-ann">@PostMapping</span>
+    <span class="co-kw">public</span> <span class="co-cls">ResponseEntity</span>&lt;<span class="co-cls">Order</span>&gt; <span class="co-fn">createOrder</span>(<span class="co-ann">@RequestBody</span> <span class="co-cls">OrderRequest</span> req) {
+        <span class="co-cmt">// 1. Persistir orden en PostgreSQL aislada del dominio</span>
+        <span class="co-cls">Order</span> order = orderService.<span class="co-fn">create</span>(req);
+
+        <span class="co-cmt">// 2. Mediator: RabbitMQ despacha evento asíncrono</span>
+        <span class="co-cmt">// (TelegramWorker y NotificationService consumen sin acoplamiento)</span>
+        eventBus.<span class="co-fn">publish</span>(<span class="co-kw">new</span> <span class="co-cls">OrderCreatedEvent</span>(
+            order.<span class="co-fn">getId</span>(), order.<span class="co-fn">getRestaurantId</span>(), order.<span class="co-fn">getItems</span>()
+        ));
+
+        <span class="co-cmt">// 3. Push inmediato por WebSocket a las pantallas de cocina</span>
+        kitchenWS.<span class="co-fn">broadcast</span>(order.<span class="co-fn">getRestaurantId</span>(), order);
+
+        <span class="co-kw">return</span> <span class="co-cls">ResponseEntity</span>.<span class="co-fn">status</span>(<span class="co-cls">HttpStatus</span>.CREATED).<span class="co-fn">body</span>(order);
+    }
+}`
+        }
+    };
+
     const devModal = document.getElementById('dev-modal');
     if (devModal) {
         const devModalOverlay = devModal.querySelector('.modal-overlay');
@@ -234,8 +439,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const modalFile = document.getElementById('dev-modal-file');
         const modalTag = document.getElementById('dev-modal-tag');
+        const modalBadge = document.getElementById('dev-modal-badge');
         const modalTitle = document.getElementById('dev-modal-title');
-        const modalDesc = document.getElementById('dev-modal-desc');
+        const modalDoc = document.getElementById('dev-modal-doc');
         const modalStack = document.getElementById('dev-modal-stack');
         const modalCodeLang = document.getElementById('dev-modal-code-lang');
         const modalCode = document.getElementById('dev-modal-code');
@@ -244,41 +450,74 @@ document.addEventListener('DOMContentLoaded', () => {
         const modalDemoLink = document.getElementById('dev-modal-demo-link');
 
         function openDevModal(btn) {
-            const data = btn.dataset;
+            const projectKey = btn.dataset.project;
+            const project = DEV_PROJECTS_DATA[projectKey];
 
-            if (modalFile) modalFile.textContent = data.file || 'project.src';
-            if (modalTag) modalTag.textContent = data.tag || 'SOFTWARE DEV';
-            if (modalTitle) modalTitle.textContent = data.title || 'PROYECTO';
-            if (modalDesc) modalDesc.textContent = data.desc || '';
-            if (modalCodeLang) modalCodeLang.textContent = (data.file || '').toUpperCase();
-            if (modalCode) modalCode.textContent = data.code || '// No code preview available';
-            if (modalImg) modalImg.src = data.img || '';
+            if (project) {
+                if (modalFile) modalFile.textContent = project.file;
+                if (modalTag) modalTag.textContent = project.tag;
+                if (modalBadge) modalBadge.textContent = project.badge;
+                if (modalTitle) modalTitle.textContent = project.title;
+                if (modalCodeLang) modalCodeLang.textContent = project.lang;
+                if (modalCode) modalCode.innerHTML = project.codeSnippetHtml;
+                if (modalImg) modalImg.src = project.img;
+                if (modalDoc) modalDoc.innerHTML = project.docHtml;
 
-            // Stack pills
-            if (modalStack) {
-                modalStack.innerHTML = '';
-                const stackItems = (data.stack || '').split(',');
-                stackItems.forEach(item => {
-                    if (item.trim()) {
+                // Stack pills
+                if (modalStack) {
+                    modalStack.innerHTML = '';
+                    project.stack.forEach(item => {
                         const pill = document.createElement('span');
                         pill.className = 'tech-pill';
-                        pill.textContent = item.trim();
+                        pill.textContent = item;
                         modalStack.appendChild(pill);
+                    });
+                }
+
+                // GitHub & Demo Links
+                if (modalGithubLink) {
+                    modalGithubLink.href = project.github || '#';
+                    modalGithubLink.style.display = project.github ? 'inline-block' : 'none';
+                }
+
+                if (modalDemoLink) {
+                    if (project.demo && project.demo.trim() !== '') {
+                        modalDemoLink.href = project.demo;
+                        modalDemoLink.style.display = 'inline-block';
+                    } else {
+                        modalDemoLink.style.display = 'none';
                     }
-                });
-            }
+                }
+            } else {
+                // Fallback for generic dataset buttons
+                const data = btn.dataset;
+                if (modalFile) modalFile.textContent = data.file || 'project.src';
+                if (modalTag) modalTag.textContent = data.tag || 'SOFTWARE DEV';
+                if (modalTitle) modalTitle.textContent = data.title || 'PROYECTO';
+                if (modalDoc) modalDoc.innerHTML = `<div class="md-block"><p>${data.desc || ''}</p></div>`;
+                if (modalCodeLang) modalCodeLang.textContent = (data.file || '').toUpperCase();
+                if (modalCode) modalCode.textContent = data.code || '// No code preview available';
+                if (modalImg) modalImg.src = data.img || '';
 
-            // GitHub & Demo Links
-            if (modalGithubLink) {
-                modalGithubLink.href = data.github || '#';
-            }
-
-            if (modalDemoLink) {
-                if (data.demo && data.demo.trim() !== '') {
-                    modalDemoLink.href = data.demo;
-                    modalDemoLink.style.display = 'inline-block';
-                } else {
-                    modalDemoLink.style.display = 'none';
+                if (modalStack) {
+                    modalStack.innerHTML = '';
+                    (data.stack || '').split(',').forEach(item => {
+                        if (item.trim()) {
+                            const pill = document.createElement('span');
+                            pill.className = 'tech-pill';
+                            pill.textContent = item.trim();
+                            modalStack.appendChild(pill);
+                        }
+                    });
+                }
+                if (modalGithubLink) modalGithubLink.href = data.github || '#';
+                if (modalDemoLink) {
+                    if (data.demo && data.demo.trim() !== '') {
+                        modalDemoLink.href = data.demo;
+                        modalDemoLink.style.display = 'inline-block';
+                    } else {
+                        modalDemoLink.style.display = 'none';
+                    }
                 }
             }
 
